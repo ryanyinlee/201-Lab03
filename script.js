@@ -134,5 +134,5 @@ switch (response3) {
         }
     
         function endOfGame() {
-            alert('Thank you for playing ' + name1 + 'I hope you learned a little about me.' );
+            alert('Thank you for playing ' + name1 + ' I hope you learned a little about me.' );
     }
