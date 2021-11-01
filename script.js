@@ -15,36 +15,34 @@ var response2, response3, response4, response5;
 var numGuess;
 var instrumentGuess;
 var guessCount;
-let randomInt = 45;
 
 
+// Random Number Generator taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+let min = 0;
+let max = 10;
 
-// let numGame = prompt("Pick a number");
-// someData = parseInt(someData);
-// let testString = true;
-// let result = typeof(someData);
-// console.log("This result is a " + result);
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+  } 
 
-
-
-/* response3 = response3.toUpperCase();
-response4 = response4.toUpperCase();
-response5 = response5.toUpperCase(); */
+  let randomInt = getRandomInt(min, max);
 
 switch (response1) {
     case 'YES':
         alert('Excellent!');
-        // console.log('Excellent!');
+      
         question2();
         break;
     case 'NO':
         alert('Well that\'s too bad. You\'re here anyway.');
-        // console.log('Well that\'s too bad. You\'re here anyway.');
+        
         question2();
         break;
     default:
         alert('Please enter \"yes\" or \"no\"');
-        // console.log('Please enter \"yes\" or \"no\"');
+        
         question2();
 
 }
@@ -57,17 +55,17 @@ function question2() {
 switch (response2) {
     case 'YES':
         alert('You\'re correct!');
-        // console.log('You\'re correct!');
+        
         question3();
         break;
     case 'NO':
         alert('Wrong! I am in fact married.');
-        // console.log('Wrong! I am in fact married.');
+        
         question3();
         break;
     default:
         alert('Please enter \"yes\" or \"no\"');
-        // console.log('Please enter \"yes\" or \"no\"');
+        
         question2();
 }
 
@@ -79,17 +77,17 @@ function question3() {
 switch (response3) {
     case 'YES':
         alert('You\'re correct!');
-        // console.log('You\'re correct!');
+        
         question4();
         break;
     case 'NO':
         alert('Wrong! I was on TV for being a victim of a crime.');
-        // console.log('Wrong! I was on TV for being a victim of a crime.');
+        
         question4();
         break;
     default:
         alert('Please enter \"yes\" or \"no\"');
-        // console.log('Please enter \"yes\" or \"no\"');
+        
         question3();
 
 }
@@ -102,17 +100,17 @@ function question4() {
 switch (response4) {
     case 'YES':
         alert('You\'re correct!');
-        // console.log('You\'re correct!');
+        
         question5();
         break;
     case 'NO':
         alert('Wrong! I need it on tacos to feel alive.');
-        // console.log('Wrong! I need it on tacos to feel alive.');
+        
         question5();
         break;
     default:
         alert('Please enter \"yes\" or \"no\"');
-        // console.log('Please enter \"yes\" or \"no\"');
+        
         question4();
 
 }
@@ -125,17 +123,17 @@ function question5() {
 switch (response5) {
     case 'YES':
         alert('You\'re correct! If you haven\'t seen it, you should go. It\'s good.');
-        // console.log('You\'re correct! If you haven\'t seen it, you should go. It\'s good.');
+        
         question6();
         break;
     case 'NO':
         alert('Wrong! I\'ve seen it twice now. If you haven\'t seen it, you should go. It\'s good.');
-        // console.log('Wrong! I\'ve seen it twice now. If you haven\'t seen it, you should go. It\'s good.');
+       
         question6();
         break;
     default:
         alert('Please enter \"yes\" or \"no\"');
-        // console.log('Please enter \"yes\" or \"no\"');
+        
         question5();
 
 }
@@ -150,7 +148,7 @@ function question6() {
 
 
 function guessingGame() {
-    numGuess = prompt("Guess an integer between 0 and 100. You have 4 guesses! Don't worry I'll tell you if it's low or high.")
+    numGuess = prompt("Guess an integer between 0 and 10. You have 4 guesses! Don't worry I'll tell you if it's low or high.")
     parseInt(numGuess);
     console.log("You guessed " + numGuess);
     console.log("Random int is: " + randomInt);
@@ -160,7 +158,7 @@ function guessingGame() {
 
     while (i > 1) {
 
-        if (numGuess == randomInt) {
+        if (numGuess === randomInt) {
             alert("You guessed correctly! The number was " + randomInt);
             break;
         }
@@ -250,17 +248,10 @@ function arrayGuess() {
 
 
 
-// Random Number Generator taken from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
-/* let min = 0;
-let max = 100;
 
-function getRandomInt(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
-  } */
   endOfGame();
 
 function endOfGame() {
     alert('Thank you for playing ' + name1 + ' I hope you learned a little about me.');
 }
+
